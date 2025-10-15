@@ -7,7 +7,10 @@ const getCharacter = () => {
         image: item.image,
         species: item.species,
         house: item.house,
-        id: item.id
+        id: item.id,
+        gender: item.gender,
+        alternate_names: item.alternate_names,
+        alive: item.alive,
       }));
       return cleanData;
      

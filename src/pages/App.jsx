@@ -1,6 +1,7 @@
 import 'react'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './HomePage.jsx'
+import DetailPage from './DetailPage.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import '../styles/app.css'
 
@@ -12,7 +13,8 @@ const App = () => {
 
     <Routes>
     <Route path="/" element={<HomePage />} />
-    <Route path="/*" element={<h1>Página no encontrada</h1>} />
+    <Route path="/character/:id" element={<DetailPage />} />
+    <Route path="/*" element={<NotFoundPage />} />
     </Routes>
     </>
   )

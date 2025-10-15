@@ -2,13 +2,14 @@ import {useState, useEffect} from 'react'
 import getCharacter from '../services/api'
 import FilterName from '../components/FilterName'
 import FilterHouse from '../components/FilterHouse'
+import CharacterList from '../components/CharacterList'
 
-
+import '../styles/App.scss'
 
 const HomePage = () => {
 
   const [name, setName] = useState('');
-  const [select, setSelect] = useState('Todas');
+  const [house, setHouse] = useState('Todas');
   const [characters, setCharacters] = useState([]);
 
 
@@ -16,8 +17,8 @@ const HomePage = () => {
     
     getCharacter().then((data) => {
       let filteredData = data;
-      if (select !== "Todas") {
-        filteredData = filteredData.filter((item) => item.house === select);
+      if (house !== "Todas") {
+        filteredData = filteredData.filter((item) => item.house === house);
             }
       if (name.trim() !== "") {
         filteredData = filteredData.filter((item) =>
@@ -26,7 +27,7 @@ const HomePage = () => {
       }
       setCharacters(filteredData);
     });
-  }, [name, select]);
+  }, [name, house]);
 
 
   const updateName = (value) => {
@@ -34,7 +35,7 @@ const HomePage = () => {
   };
 
   const updateHouse = (value) => {
-    setSelect(value);
+    setHouse(value);
   };
 
  
@@ -43,46 +44,32 @@ const HomePage = () => {
           <section>
             <h3>Busca tu personaje de Harry Potter favorito: </h3>
             <FilterName name={name} updateName={updateName} />
-         {/*   <div className='input-text'>
-              <label htmlFor='name'>Busca por personaje: </label>
-              <input type='text' name='name' id='name' placeholder='h' value={name} onChange={handleChangeName}/>  
-          </div> */}
-
-            <FilterHouse house={select} updateHouse={updateHouse} />
-         {/*  <div className='input-select'>
-            <label htmlFor='select'> Selecciona por casa 
-              <select name='select' id='select' onChange={handleChangeSelect} value={select}>
-                <option value='Todas'>Todas</option>
-                <option value='Gryffindor'>Gryffindor</option>
-                <option value='Hufflepuff'>Hufflepuff</option>
-                <option value='Ravenclaw'>Ravenclaw</option>
-                <option value='Slytherin'>Slytherin</option>
-              </select>
-            </label>  
-            </div> */}
+            <FilterHouse house={house} updateHouse={updateHouse} />
           </section>
 
 
-      {/*Renderizando las tarjetas */}
-      <section>
-        <h3>Resultados de la búsqueda:</h3>
-        {characters.map((item, index) => (
-          <article key={index}>{/* //luego puede ser que necesite un id */}
-            <h3>{item.name}</h3>
-            <img src={item.image} alt={item.name} width="100" />
-            <p>{item.species}</p>
-          </article>
-        ))}
-      </section>
-    </>
-  );
-}
+            {/*Renderizando las tarjetas */}
+          <section>
+            <h3>Resultados de la búsqueda:</h3>
+            <section className="character-list">
+              <CharacterList characters={characters} />
+              {/* {characters.map((item, index) => (
+                <article key={index}> 
+                  <h3>{item.name}</h3>
+                  <img src={item.image} alt={item.name} width="100" />
+                  <p>{item.species}</p>
+                </article>
+              ))}  */}
+          </section>
+        
+          </section>
+          </>
+  )
+}   
 
-export default HomePage
-         
-            
-            
+
+export default HomePage;
+
         
     
-    
-
+  
