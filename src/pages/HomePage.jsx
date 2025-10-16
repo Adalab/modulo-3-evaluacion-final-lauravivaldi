@@ -4,7 +4,7 @@ import FilterName from '../components/FilterName'
 import FilterHouse from '../components/FilterHouse'
 import CharacterList from '../components/CharacterList'
 
-import '../styles/App.scss'
+
 
 const HomePage = () => {
 
