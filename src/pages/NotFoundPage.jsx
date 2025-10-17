@@ -1,8 +1,13 @@
-import "react";
+import "react"
+import { Link } from 'react-router-dom'
+
 
 const NotFoundPage = () => {
     return (
-        <h1>Página no encontrada</h1>
+        <div>
+            <h1>Página no encontrada</h1>
+            <Link to="/" className="back-button">Volver al inicio</Link>
+        </div>
     )
 }
 

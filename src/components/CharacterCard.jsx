@@ -1,28 +1,47 @@
 import 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const CharacterCard = ({ name, image, species, house, gender, alternate_names, alive }) => {
+
+
+const CharacterCard = ({ character }) => {
+  const { name, image, species } = character;
+
+ 
+  const imageSrc =
+    image && image.trim() !== ''
+      ? image
+      : 'https://placehold.co/600x400';
+
   return (
     <article className="character-card">
-      <img src={image} alt={name} width="100" />
+      <img src={imageSrc} alt={name} width="100" />
       <h3>{name}</h3>
-      <p>{species}</p>
-      <p>{house}</p>
-      <p>{gender}</p>
-      <p>{alternate_names}</p>
-      <p>{alive ? 'Vivo' : 'Muerto'}</p>
+      <p>{species}</p>    
+      <Link to={`/character/${character.id}`}>Ver detalles</Link>
     </article>
   );
 };
 
+
 export default CharacterCard;
 
 CharacterCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  species: PropTypes.string.isRequired,
-  house: PropTypes.string.isRequired,
-  gender: PropTypes.string.isRequired,
-  alternate_names: PropTypes.array.isRequired,
-  alive: PropTypes.bool.isRequired,
-};
+  character: PropTypes.shape({
+    name: PropTypes.string.isRequired,    
+    image: PropTypes.string,
+    species: PropTypes.string.isRequired,     
+  }).isRequired,
+  };
+
+
+
+
+
+
+
+
+
+
+
+

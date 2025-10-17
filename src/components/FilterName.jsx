@@ -1,7 +1,6 @@
 import 'react';  
 import PropTypes from 'prop-types';
 
-
 const FilterName = ({ name, updateName }) => {
 
   const handleChangeName = (ev) => {
@@ -21,6 +20,7 @@ const FilterName = ({ name, updateName }) => {
     </div>
   );
 };
+
 
 export default FilterName;
 

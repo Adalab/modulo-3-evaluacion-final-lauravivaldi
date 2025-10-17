@@ -9,13 +9,12 @@ const CharacterList = ({ characters }) => {
   }
 
   return (
-    <section className="character-list">
-       {characters.map((character) => (
-        <CharacterCard key={character.id || character.name} character={character} />
-            ))}
+   <section className="character-list">
+      {characters.map((character, index) => (
+        <CharacterCard key={`${character.name}-${index}`} character={character} />))}
     </section>
-
-      )};
+  );
+};
 
 export default CharacterList;
 

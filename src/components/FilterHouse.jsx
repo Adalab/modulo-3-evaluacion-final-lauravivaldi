@@ -1,7 +1,6 @@
 import 'react';  
 import PropTypes from 'prop-types';
 
-
 const FilterHouse = ({ house, updateHouse }) => {
 
   const handleChangeSelect = (ev) => {

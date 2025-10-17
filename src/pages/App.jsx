@@ -1,8 +1,8 @@
 import 'react'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './HomePage.jsx'
-import DetailPage from './DetailPage.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
+import DetailPage from './DetailPage.jsx'
 import '../styles/app.css'
 
 const App = () => {
