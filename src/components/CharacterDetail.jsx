@@ -1,5 +1,6 @@
 import 'react'
 import PropTypes from 'prop-types';
+import styles from "../styles/characterDetail.module.css";
 
 const CharacterDetail = ({  name, image, house, species, 
   gender = 'Desconocido',
@@ -9,7 +10,7 @@ const CharacterDetail = ({  name, image, house, species,
   return (
    <section className="character-detail"> 
       <img src={image || 'https://placehold.co/600x400'} alt={name} width="150" />
-      <h2>{name}</h2>
+      <h3 className={styles.characterName}>{name}</h3>
       <p><strong>Casa:</strong> {house || 'Desconocida'}</p>
       <p><strong>Especie:</strong> {species || 'Desconocida'}</p>
       <p><strong>Género:</strong> {gender}</p>
@@ -18,6 +19,7 @@ const CharacterDetail = ({  name, image, house, species,
     </section>
   );
 };
+
 export default CharacterDetail;
 
 CharacterDetail.propTypes = {

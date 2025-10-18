@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import NotFoundPage from './NotFoundPage';
 import ls from "../services/localStorage";
 
-
 const DetailPage = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
@@ -26,7 +25,7 @@ const DetailPage = () => {
   return (
     <>
       <CharacterDetail {...character} />
-      <Link to="/" className="back-button">Volver al inicio</Link>
+      <Link to="/">Volver al inicio</Link>
     </>
   );
 };

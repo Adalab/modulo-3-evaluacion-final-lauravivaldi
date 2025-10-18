@@ -5,8 +5,6 @@ import FilterHouse from '../components/FilterHouse'
 import CharacterList from '../components/CharacterList'
 import ls from "../services/localStorage";
 
-
-
 const HomePage = () => {
 
   const [name, setName] = useState('');
@@ -41,20 +39,21 @@ const HomePage = () => {
 
  
  return (
-  <>
-    <section>
-      <h3>Busca tu personaje de Harry Potter favorito: </h3>
-      <FilterName name={name} updateName={updateName} />
-      <FilterHouse house={house} updateHouse={updateHouse} />
-    </section>
+      <>
+        <header className="header">
+          <img src="public/logo.png" alt="Logo Harry Potter" className="logo"   style={{ width: "250px", height: "auto" }}/>
+        </header>
 
-    <section>
-    <h3>Resultados de la búsqueda:</h3>
-    <CharacterList characters={characters}/>
+        <section>
+          <FilterName name={name} updateName={updateName} />
+          <FilterHouse house={house} updateHouse={updateHouse} />
+        </section>
 
-</section>
+        <section>
+          <CharacterList characters={characters}/>
+        </section>
 
-  </>
+      </>
 );
 };
 
