@@ -4,6 +4,7 @@ import FilterName from '../components/FilterName'
 import FilterHouse from '../components/FilterHouse'
 import CharacterList from '../components/CharacterList'
 import ls from "../services/localStorage";
+import '../styles/app.css'
 
 const HomePage = () => {
 
@@ -41,7 +42,7 @@ const HomePage = () => {
  return (
       <>
         <header className="header">
-          <img src="public/logo.png" alt="Logo Harry Potter" className="logo"   style={{ width: "250px", height: "auto" }}/>
+          <img src="public/logo.png" alt="Logo Harry Potter" className="logo"/>
         </header>
 
         <section>

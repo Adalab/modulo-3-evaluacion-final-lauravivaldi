@@ -7,18 +7,22 @@ const FilterName = ({ name, updateName }) => {
     updateName(ev.target.value);
   };
 
+  const handleSubmit = (ev) => {
+    ev.preventDefault(); // Evita que la página se recargue al hacer Enter
+  };
+
   return (
-    <div className="input-text">
-      <label htmlFor="name">Busca por personaje: </label>
-      <input
-        type="text"
-        id="name"
-        placeholder="h"
-        value={name}
-        onChange={handleChangeName}
-        className={styles.filterInput}
-      />
-    </div>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Busca por personaje: </label>
+          <input
+          type="text"
+          id="name"
+          placeholder="h"
+          value={name}
+          onChange={handleChangeName}
+          className={styles.filterInput}
+          />
+      </form> 
   );
 };
 

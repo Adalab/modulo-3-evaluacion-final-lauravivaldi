@@ -7,9 +7,14 @@ const FilterHouse = ({ house, updateHouse }) => {
   const handleChangeSelect = (ev) => {
     updateHouse(ev.target.value);
   };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+  }
+
   return (
-    <div className='input-select'>
-      <label htmlFor='select'> Selecciona por casa 
+    <form onSubmit={handleSubmit}>
+      <label htmlFor='select'> Selecciona por casa :&nbsp;  
         <select name='select' id='select'  value={house} onChange={handleChangeSelect} className={styles.filterInput} >
           <option value='Todas'>Todas</option>
           <option value='Gryffindor'>Gryffindor</option>
@@ -18,7 +23,7 @@ const FilterHouse = ({ house, updateHouse }) => {
           <option value='Slytherin'>Slytherin</option>
         </select>
       </label>  
-    </div>
+    </form>
     )
 };
 
